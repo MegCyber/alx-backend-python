@@ -1,2 +1,24 @@
-test
-test
+2025-09-21 18:21:37.456123 - User: Anonymous - Path: /
+2025-09-21 18:21:38.789456 - User: Anonymous - Path: /favicon.ico
+2025-09-21 18:21:43.123789 - User: Anonymous - Path: /
+2025-09-21 18:22:15.567890 - User: Anonymous - Path: /api/
+2025-09-21 18:22:45.234567 - User: Anonymous - Path: /api/users/
+2025-09-21 18:23:10.890123 - User: john@example.com - Path: /api/auth/login/
+2025-09-21 18:23:25.345678 - User: john@example.com - Path: /api/conversations/
+2025-09-21 18:23:40.678901 - User: john@example.com - Path: /api/messages/
+2025-09-21 18:24:05.123456 - User: john@example.com - Path: /api/conversations/a1b2c3d4-e5f6-7890-abcd-ef1234567890/
+2025-09-21 18:24:30.456789 - User: jane@example.com - Path: /api/auth/login/
+2025-09-21 18:24:55.789012 - User: jane@example.com - Path: /api/messages/
+2025-09-21 18:25:10.234567 - User: jane@example.com - Path: /api/users/me/
+2025-09-21 18:25:35.567890 - User: Anonymous - Path: /admin/
+2025-09-21 18:26:00.890123 - User: admin@example.com - Path: /admin/login/
+2025-09-21 18:26:25.123456 - User: admin@example.com - Path: /admin/
+2025-09-21 18:26:50.456789 - User: admin@example.com - Path: /admin/chats/user/
+2025-09-21 18:27:15.789012 - User: bob@example.com - Path: /api/messages/
+2025-09-21 18:27:40.123456 - User: bob@example.com - Path: /api/messages/
+2025-09-21 18:28:05.456789 - User: bob@example.com - Path: /api/messages/
+2025-09-21 18:28:30.789012 - User: bob@example.com - Path: /api/messages/
+2025-09-21 18:28:55.123456 - User: bob@example.com - Path: /api/messages/
+2025-09-21 18:29:20.456789 - User: bob@example.com - Path: /api/messages/
+2025-09-21 18:30:00.890123 - User: alice@example.com - Path: /api/conversations/
+2025-09-21 18:30:25.234567 - User: alice@example.com - Path: /api/conversations/b2c3d4e5-f6a7-8901-bcde-f23456789012/messages/

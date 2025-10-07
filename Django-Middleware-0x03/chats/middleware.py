@@ -198,7 +198,9 @@ class RolePermissionMiddleware(MiddlewareMixin):
         # Continue processing the request
         response = self.get_response(request)
         return response
-
+    
+class RolePermissionMiddleware(MiddlewareMixin):
+    pass
 
 # Optional: Additional utility middleware for offensive language detection
 class OffensiveLanguageDetectionMiddleware(MiddlewareMixin):
