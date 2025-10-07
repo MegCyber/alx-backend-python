@@ -140,7 +140,7 @@ class SignalTestCase(TestCase):
         # Verify all returned messages are unread
         for message in unread:
             self.assertFalse(message.read)
-            
+
 from django.contrib import admin
 from .models import Message, Notification, MessageHistory
 

@@ -89,3 +89,6 @@ def delete_user_related_data(sender, instance, **kwargs):
     
     # Optional: Log the deletion
     print(f"Deleted all data related to user: {instance.username}")
+
+# Note: Ensure that the signals are imported in the AppConfig's ready() method
+# to ensure they are registered when the app is loaded. 
