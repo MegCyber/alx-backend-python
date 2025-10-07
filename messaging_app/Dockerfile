@@ -1,4 +1,4 @@
-    # Use Python 3.10 as base image
+# Use Python 3.10 as base image
 FROM python:3.10-slim
 
 # Set environment variables
@@ -23,8 +23,8 @@ RUN pip install -r requirements.txt
 # Copy project files
 COPY . /app/
 
-# Expose port 8000
+# Expose port 8000 for Django app (use -p 8000:8000 when running)
 EXPOSE 8000
 
 # Run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
