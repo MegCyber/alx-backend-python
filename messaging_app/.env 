@@ -1,0 +1,12 @@
+# Database Configuration
+MYSQL_DATABASE=messaging_db
+MYSQL_USER=messaging_user
+MYSQL_PASSWORD=secure_password_here
+MYSQL_ROOT_PASSWORD=root_password_here
+
+# Django Configuration
+SECRET_KEY=your-secret-key-here
+DEBUG=True
+ALLOWED_HOSTS=localhost
+DATABASE_HOST=db
+DATABASE_PORT=3306

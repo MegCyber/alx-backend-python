@@ -22,62 +22,10 @@ from .filters import MessageFilter, ConversationFilter, UserFilter
 from .pagination import MessagePagination, ConversationPagination, UserPagination
 
 
-class ConversationViewSet(viewsets.ModelViewSet):
-    """ViewSet for managing conversations"""
-    pagination_class = ConversationPagination
-    filter_backends = [DjangoFilterBackend, OrderingFilter]
-    filterset_class = ConversationFilter
-    ordering_fields = ['created_at', 'updated_at']
-    
-    def get_permissions(self):
-        """
-        Set permissions based on action
-        """
-        if self.action == 'create':
-            return [IsAuthenticated(), CanCreateConversation()]
-        return [Is# chats/views.py
-from django.shortcuts import get_object_or_404
-from django.db.models import Q, Prefetch
-from rest_framework import viewsets, status, permissions
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
-from django.contrib.auth import get_user_model
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter, OrderingFilter
-
-from .models import User, Conversation, Message, ConversationParticipant, MessageRead
-from .serializers import (
-    UserSerializer, UserCreateSerializer, ConversationSerializer,
-    ConversationDetailSerializer, ConversationListSerializer,
-    MessageSerializer, MessageCreateSerializer
-)
-from .permissions import (
-    IsParticipantOfConversation, IsMessageSender,
-    IsConversationParticipant, CanCreateConversation
-)
-from .filters import MessageFilter, ConversationFilter, UserFilter
-from .pagination import MessagePagination, ConversationPagination, UserPagination
-
-
 class UserViewSet(viewsets.ModelViewSet):
     """ViewSet for managing users"""
     queryset = User.objects.all()
-    serializer_class = UserSerializer
-    pagination_class = UserPagination
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_class = UserFilter
-    search_fields = ['first_name', 'last_name', 'email']
-    ordering_fields = ['created_at', 'email', 'first_name']
-    
-    def get_permissions(self):
-        """
-        Allow anyone to create a user (register)
-        Require authentication for other actions
-        """
-        if self.action == 'create':
-            return [AllowAny()]
-        return [IsAuthenticated()]
+    permission_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
         if self.action == 'create':
@@ -123,18 +71,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class ConversationViewSet(viewsets.ModelViewSet):
     """ViewSet for managing conversations"""
-    pagination_class = ConversationPagination
-    filter_backends = [DjangoFilterBackend, OrderingFilter]
-    filterset_class = ConversationFilter
-    ordering_fields = ['created_at', 'updated_at']
-    
-    def get_permissions(self):
-        """
-        Set permissions based on action
-        """
-        if self.action == 'create':
-            return [IsAuthenticated(), CanCreateConversation()]
-        return [IsAuthenticated(), IsParticipantOfConversation()]
+    permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
         # Only return conversations where current user is a participant
@@ -370,4 +307,4 @@ class AuthTokenView(APIView):
             return Response(
                 {'error': 'Invalid credentials'},
                 status=status.HTTP_401_UNAUTHORIZED
-            )ParticipantOfConversation()]
+            )
